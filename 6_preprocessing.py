@@ -8,15 +8,12 @@ names = ['class', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of ash ', 'Magnesi
 data = pd.read_csv('wine.csv', names=names)
 array = data.values
 
-# separate array into input and output components
 X = array[:,1:]
 Y = array[:,0]
 
 scaler = sklp.StandardScaler().fit(X)
 rescaledX = scaler.transform(X)
 
-# summarize transformed data
 np.set_printoptions(precision=3)
-
 print(X[:5,:5])
 print(rescaledX[:5,:5])

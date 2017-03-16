@@ -141,6 +141,46 @@ plt.show()
 
 > **Zadanie 5:** Przeszukaj dokumentację użytych bibliotek, aby dowiedzieć się jak wyrysować na ekranie histogram wybranej cechy i uczyń to dla swojego zbioru.
 
-## Preproccesing
+## Preproccesing[`preprocessing.py`](6_preprocessing.py)
+
+Już niedługo będziemy mogli przystąpić do naszego pierwszego eksperymentu. Zanim to jednak nastąpi, musimy zapamiętać, jak istotnym jest tak zawany etap _preprocessingu_, czyli przetwarzania danych przed przekazaniem ich do algorytmu. Za przykład posłuży nam moduł `sklearn.preprocessing`.
+
+```python
+import sklearn.preprocessing as sklp
+```
+
+Na samym początku musimy podzielić zbiór danych na dwie części. Cechy (nazwiemy je podzbiorem `X`) i etykiety (podzbiór `Y`). W przypadku zbioru `wine`, etykiety (czyli inaczej informacja o klasie) znajdowały się w kolumnie pierwszej. Cechy stanowią całą resztę zbioru danych.
+
+```python
+X = array[:,1:]
+Y = array[:,0]
+```
+
+W następnym kroku przeskalujmy podzbiór cech, dokonując ich _standaryzacji_, która w tym wypadku oznacza takie ich przetworzenie, aby średnia wartości wynosiła zero, a odchylenie standardowe było równe jeden.
+
+```python
+scaler = sklp.StandardScaler().fit(X)
+rescaledX = scaler.transform(X)
+```
+
+Porównajmy ze sobą oryginalny i ustandaryzowany zbiór cech.
+
+>X
+```
+[[  14.23    1.71    2.43   15.6   127.  ]
+ [  13.2     1.78    2.14   11.2   100.  ]
+ [  13.16    2.36    2.67   18.6   101.  ]
+ [  14.37    1.95    2.5    16.8   113.  ]
+ [  13.24    2.59    2.87   21.    118.  ]]
+```
+
+> rescaledX
+```
+[[ 1.519 -0.562  0.232 -1.17   1.914]
+ [ 0.246 -0.499 -0.828 -2.491  0.018]
+ [ 0.197  0.021  1.109 -0.269  0.088]
+ [ 1.692 -0.347  0.488 -0.809  0.931]
+ [ 0.296  0.228  1.84   0.452  1.282]]
+```
 
 ## Uczenie
