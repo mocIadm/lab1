@@ -68,12 +68,30 @@ dataFrame = pd.DataFrame(array, index=index, columns=columns)
 
 > **Zadanie 2:** Wyświetl na ekranie utworzoną ramkę danych i zacznij chwalić się przed znajomymi, że programujesz w Pythonie.
 
-## Zbiory danych
+## Zbiory danych [`3_dataset.py`](3_dataset.py)
 
-http://archive.ics.uci.edu/ml/
+Jeśli prowadzimy eksperymenty naukowe, z reguły wypada móc porównać swoje wyniki badań z innymi. W związku z tym, w przeważającej większości przypadków, testujemy nasze metody wykorzystując tak zwane _dane benchmarkowe_. Najbardziej powszechnie stosowanym źródłem takich danych jest [repozytorium UCIML](http://archive.ics.uci.edu/ml/).
+
+Do niniejszej instrukcji dodany został plik [`wine.csv`](wine.csv), zawierający przykładowy, typowy zbiór danych, o którym więcej przeczytać możesz [na stronie repozytorium](http://archive.ics.uci.edu/ml/datasets/Wine). Zbiory najczęściej udostępniane są w formacie CSV. Jeśli nie wiesz, czym jest format CSV, nie przyznawaj się i sprawdź [w Wikipedii](https://en.wikipedia.org/wiki/Comma-separated_values). W skrócie to format tabeli, w którym wszystkie dane zapisujemy tekstowo, komórki oddzielamy przecinkiem, a kolejne wiersze – znakiem nowej linii.
+
+Dla wygody, przed eksperymentami wczytujemy taki zbiór danych jako _ramkę danych_. Jak już wiesz, taka forma wymaga opisanych kolumn i wierszy. Opisem wiersza będzie w tym wypadku numer obiektu, więc nie musimy się nim martwić, ale opisy kolumn musimy już uzupełnić.
+
+Przykładowo, dla zbioru `wine`:
+
+```python
+names = ['class', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of ash ', 'Magnesium', 'Total phenols', 'Flavanoids', 'Nonflavanoid phenols', 'Proanthocyanins', 'Color intensity', 'Hue', 'OD280/OD315 of diluted wines', 'Proline']
+```
+
+Biblioteka `pandas` posiada wbudowaną funkcję wczytującą pliki CSV do ramek, więc używamy jej, aby odczytać nasz zbiór danych.
+
+```python
+data = pd.read_csv('wine.csv', names=names)
+```
+
+> **Zadanie 3:** Wybierz z repozytorium UCI jeden zbiór danych, przeczytaj jego opis i uzupełnij swój skrypt o wczytywanie tego zbioru, pamiętając o odpowiednim nazwaniu kolumn.
 
 ## Statystyki opisowe
 
 ## Preproccesing
 
-# Uczenie
+## Uczenie
