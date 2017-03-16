@@ -1,5 +1,7 @@
 # Laboratorium 1
 
+> Narzędzia, ramki i zbiory danych, ich statystyki opisowe, preprocessing i proste uczenie maszyn.
+
 ## Narzędzia [`1_tools.py`](1_tools.py)
 
 - Python
