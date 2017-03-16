@@ -28,7 +28,7 @@ print 'sklearn: %s' % skl.__version__
 
 > **Zadanie 1:** Stwórz własny skrypt, w którym zaimportujesz wszystkie potrzebne biblioteki i przywitasz się ze światem.
 
-## Ramki danych [`2_data.py`](2_data.py)
+## Ramki danych [`2_data_frame.py`](2_data_frame.py)
 
 Krótkie wprowadzenie do języka _Python_:
 
