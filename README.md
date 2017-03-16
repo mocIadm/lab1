@@ -26,6 +26,8 @@ print 'pandas: %s' % pd.__version__
 print 'sklearn: %s' % skl.__version__
 ```
 
+> **Zadanie 1:** Stwórz własny skrypt, w którym zaimportujesz wszystkie potrzebne biblioteki i przywitasz się ze światem.
+
 ## Ramki danych
 
 ## Zbiory danych
