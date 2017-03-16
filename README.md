@@ -116,6 +116,31 @@ max      3.000000   14.830000    5.800000
 
 > **Zadanie 4:** Uzupełnij swój skrypt o wyświetlanie statystyk opisowych cech zbioru danych. Wykorzystując swoją wiedzę z _Rachunku Prawdopodobieństwa_ i _Inżynierskich Zastosowań Statystyki_, w komentarzu, wyjaśnij każdą z wyświetlonych miar.
 
+## Wizualizacja danych [`5_scatter_plot.py`](5_scatter_plot.py)
+
+Jeśli nie radzisz sobie zbyt dobrze z interpretowaniem liczb i statystyki opisowe niewiele ci mówią, szczęśliwie, jest jeszcze dla ciebie nadzieja. Dane liczbowe możemy również wizualizować. W celu zobrazowania wczytanego zbioru użyjemy biblioteki `matplotlib`.
+
+```python
+import matplotlib.pyplot as plt
+```
+
+Naszym wyborem wizualizacji będzie _scatter plot_, który wyrysować potrafi, jak zawsze pomocna `pandas`.
+
+```python
+from pandas.tools.plotting import scatter_matrix
+```
+
+Zauważ, że tym razem nie zaimportowaliśmy całego modułu, a jedynie pojedynczą funkcję. Użyjmy jej więc do wyrysowania wizualizacji _scatter plot_.
+
+```python
+scatter_matrix(data)
+plt.show()
+```
+
+![](SS.png)
+
+> **Zadanie 5:** Przeszukaj dokumentację użytych bibliotek, aby dowiedzieć się jak wyrysować na ekranie histogram wybranej cechy i uczyń to dla swojego zbioru.
+
 ## Preproccesing
 
 ## Uczenie
