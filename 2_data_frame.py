@@ -9,4 +9,4 @@ columns = ['was', 'is', 'will be']
 
 dataFrame = pd.DataFrame(array, index=index, columns=columns)
 
-print(dataFrame)
+print dataFrame
