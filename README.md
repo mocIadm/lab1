@@ -90,7 +90,31 @@ data = pd.read_csv('wine.csv', names=names)
 
 > **Zadanie 3:** Wybierz z repozytorium UCI jeden zbiór danych, przeczytaj jego opis i uzupełnij swój skrypt o wczytywanie tego zbioru, pamiętając o odpowiednim nazwaniu kolumn.
 
-## Statystyki opisowe
+## Statystyki opisowe [`4_statistics.py`](4_statistics.py)
+
+Wczytanie zbioru danych do dopiero początek _świetnej zabawy_. Jeśli mamy zajmować się jego przetwarzaniem, wypadałoby dowiedzieć się o nim czegoś więcej. Do tego przydadzą nam się statystyki opisowe.
+
+Wobec ramki danych, możemy łatwo wyświetlić statystyki dla każdej z cech, korzystając z wbudowanej w bibliotekę `pandas` funkcji `describe()`.
+
+```python
+description = data.describe()
+```
+
+Przykładowy wynik takiej operacji może wyglądać jak poniżej:
+
+```
+class     Alcohol  Malic acid         Ash  \
+count  178.000000  178.000000  178.000000
+mean     1.938202   13.000618    2.336348
+std      0.775035    0.811827    1.117146
+min      1.000000   11.030000    0.740000
+25%      1.000000   12.362500    1.602500
+50%      2.000000   13.050000    1.865000
+75%      3.000000   13.677500    3.082500
+max      3.000000   14.830000    5.800000
+```
+
+> **Zadanie 4:** Uzupełnij swój skrypt o wyświetlanie statystyk opisowych cech zbioru danych. Wykorzystując swoją wiedzę z _Rachunku Prawdopodobieństwa_ i _Inżynierskich Zastosowań Statystyki_, w komentarzu, wyjaśnij każdą z wyświetlonych miar.
 
 ## Preproccesing
 
