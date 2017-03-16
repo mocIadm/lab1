@@ -152,6 +152,7 @@ import sklearn.preprocessing as sklp
 Na samym początku musimy podzielić zbiór danych na dwie części. Cechy (nazwiemy je podzbiorem `X`) i etykiety (podzbiór `Y`). W przypadku zbioru `wine`, etykiety (czyli inaczej informacja o klasie) znajdowały się w kolumnie pierwszej. Cechy stanowią całą resztę zbioru danych.
 
 ```python
+array = data.values
 X = array[:,1:]
 Y = array[:,0]
 ```
@@ -184,3 +185,23 @@ Porównajmy ze sobą oryginalny i ustandaryzowany zbiór cech.
 ```
 
 ## Uczenie
+
+```python
+from sklearn import neighbors
+```
+
+```python
+from sklearn.model_selection import cross_val_score
+```
+
+```python
+clf = neighbors.KNeighborsClassifier(),
+```
+
+```python
+clf.fit(X, Y)
+scores = cross_val_score(clf, X, Y, cv=10)
+print 'Acc: %.3f' % scores.mean()
+```
+
+> **Zadanie 6:** Uzupełnij swój skrypt o proces uczenia. Przetestuj przynajmniej trzy klasyfikatory i wyświetl na ekranie wyniki, które osiągnęły. Zweryfikuj też jakość klasyfikacji na znormalizowanym zbiorze `X`.
