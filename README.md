@@ -53,14 +53,14 @@ Na początek tworzymy tablicę. Nie jest to jednak tablica zwyczajna, a tablica 
 array = np.array([[1, 2, 3], [4, 5, 6]])
 ```
 
-Chcemy jednak stworzyć sobie ramkę danych, a taka zawiera także opisy dla kolumn i wierszy. Przygotujmy sobie więc odpowiednie łańcuchy.
+Chcemy jednak przygotować własną ramkę danych, a taka zawiera także opisy dla kolumn i wierszy. Przygotujmy sobie więc odpowiednie łańcuchy.
 
 ```python
 index = ['first row', 'last row']
 columns = ['was', 'is', 'will be']
 ```
 
-Dysponując już wszystkimi potrzebnymi danymi, wykorzysując bibliotekę `pandas`, tworzymy ramkę danych.
+Dysponując już wszystkimi potrzebnymi danymi, wykorzystując bibliotekę `pandas`, tworzymy ramkę danych.
 
 ```
 dataFrame = pd.DataFrame(array, index=index, columns=columns)
