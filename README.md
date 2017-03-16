@@ -195,7 +195,7 @@ from sklearn.model_selection import cross_val_score
 ```
 
 ```python
-clf = neighbors.KNeighborsClassifier(),
+clf = neighbors.KNeighborsClassifier()
 ```
 
 ```python
