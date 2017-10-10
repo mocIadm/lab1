@@ -1,14 +1,12 @@
 # Laboratorium 1
 
-> Narzędzia, ramki i zbiory danych, ich statystyki opisowe, preprocessing i proste uczenie maszyn.
+> Tools, frames and data sets, their statistics, preprocessing and simple machine learning.
 
-## Narzędzia [`1_tools.py`](1_tools.py)
+## Tools [`1_tools.py`](1_tools.py)
 
-Aby móc korzystać z _Pythona_, w systemie operacyjnym musimy zainstalować jego interpreter (_szok_). Najwygodniejszym rozwiązaniem w tym wypadku jest zainstalowanie pakietu [Anaconda](https://www.continuum.io/downloads), który zawiera już wszystkie narzędzia potrzebne do wykonywania eksperymentów z maszynami uczącymi się.
+To verify that your machine has the _Python_ interpreter installed, just type `python` in the terminal. If everything is normal, you will be given a prompt.
 
-Aby sprawdzić, czy na twojej maszynie zainstalowany jest interpreter języka _Python_, zwyczajnie wpisz w terminalu komendę `python`. Jeśli wszystko jest w normie, odpowie Ci jego znak zachęty.
-
-Pierwszy skrypt towarzyszący temu laboratorium importuje wszystkie potrzebne nam biblioteki i wyświetla ich wersje.
+The first script that accompanies this lab imports all the libraries we need and displays them.
 
 ```python
 import sys
@@ -28,79 +26,82 @@ print 'sklearn: %s' % skl.__version__
 
 > **Zadanie 1:** Stwórz własny skrypt, w którym zaimportujesz wszystkie potrzebne biblioteki i przywitasz się ze światem.
 
-## Ramki danych [`2_data_frame.py`](2_data_frame.py)
+> **Task 1:** Create your own script, in which you import all the needed libraries and say *Hello* to the world.
+## Data frames [`2_data_frame.py`](2_data_frame.py)
 
-Krótkie wprowadzenie do języka _Python_:
+Short introduction to _Python_ language:
 
 ![](https://imgs.xkcd.com/comics/python.png)
 
-- ten język jest prosty i jeśli umiesz programować w jakimkolwiek innym (a najpewniej umiesz), poradzisz sobie,
-- komentujesz przy użyciu płotka (`#`),
-- nie musisz deklarować typów zmiennych,
-- zamiast klamerek stosujesz wcięcia (a więc znaczenie ma nie tylko wielkość znaków, ale i spacje).
-- jeśli czegoś nie wiesz, wiesz, gdzie znajduje się [Stack Overflow](https://stackoverflow.com)
+- this language is simple and if you can program in any other language (and most probably you can), you will make it,
+- you commen using a dash (`#`),
+- you do not need to declare variable types,
+- instead of brackets you use indentations (so the meaning is not only the size of the characters, but also the spaces).
+- if you do not know something, you know where the [Stack Overflow](https://stackoverflow.com) is.
 
 W tym zadaniu tworzymy tak zwaną _ramkę danych_, która różni się od klasycznej tablicy tym, że każdy wiersz i każda kolumna ma swoją nazwę. Będziemy potrzebować bibliotek `numpy` i `pandas`.
+
+In this task we create a so-called _data frame_, which is different from the classical array in that each row and each column has its name. We will need the `numpy` and` pandas` libraries.
 
 ```python
 import numpy as np
 import pandas as pd
 ```
 
-Na początek tworzymy tablicę. Nie jest to jednak tablica zwyczajna, a tablica `numpy`. Z pozoru nie różni się niczym od tej zadeklarowanej klasycznie, ale w rzeczywistości pozwala nam na skrócenie większości operacji i dzięki niej praktycznie niczego nie będziemy musieć wykonywać ręcznie.
+At the beginning we create an array. This is not an ordinary table, but a `numpy` array. Apparently it is not different from this classically declared, but in fact allows us to shorten most of the operation and thanks to it practically nothing we will have to do manually.
 
 ```python
 array = np.array([[1, 2, 3], [4, 5, 6]])
 ```
 
-Chcemy jednak przygotować własną ramkę danych, a taka zawiera także opisy dla kolumn i wierszy. Przygotujmy sobie więc odpowiednie łańcuchy.
+However, we want to prepare our own data frame, and this also includes descriptions for columns and rows. Let's get the lists right.
 
 ```python
 index = ['first row', 'last row']
 columns = ['was', 'is', 'will be']
 ```
 
-Dysponując już wszystkimi potrzebnymi danymi, wykorzystując bibliotekę `pandas`, tworzymy ramkę danych.
+With all the data we need, using the `pandas` library, we create a data frame.
 
 ```
 dataFrame = pd.DataFrame(array, index=index, columns=columns)
 ```
 
-> **Zadanie 2:** Wyświetl na ekranie utworzoną ramkę danych i zacznij chwalić się przed znajomymi, że programujesz w Pythonie.
+> **Task 2:** Display the created data frame on the screen and begin to boast to your friends that you are programming in Python.
 
-## Zbiory danych [`3_dataset.py`](3_dataset.py)
+## Datasets [`3_dataset.py`](3_dataset.py)
 
-Jeśli prowadzimy eksperymenty naukowe, z reguły wypada móc porównać swoje wyniki badań z innymi. W związku z tym, w przeważającej większości przypadków, testujemy nasze metody wykorzystując tak zwane _dane benchmarkowe_. Najbardziej powszechnie stosowanym źródłem takich danych jest [repozytorium UCIML](http://archive.ics.uci.edu/ml/).
+If we conduct scientific experiments, it is usually needed to compare our results with others. Therefore, in most cases, we test our methods using so-called benchmark data. The most commonly used source of such data is [UCIML repository](http://archive.ics.uci.edu/ml/).
 
-Do niniejszej instrukcji dodany został plik [`wine.csv`](wine.csv), zawierający przykładowy, typowy zbiór danych, o którym więcej przeczytać możesz [na stronie repozytorium](http://archive.ics.uci.edu/ml/datasets/Wine). Zbiory najczęściej udostępniane są w formacie CSV. Jeśli nie wiesz, czym jest format CSV, nie przyznawaj się i sprawdź [w Wikipedii](https://en.wikipedia.org/wiki/Comma-separated_values). W skrócie to format tabeli, w którym wszystkie dane zapisujemy tekstowo, komórki oddzielamy przecinkiem, a kolejne wiersze – znakiem nowej linii.
+For this instruction, the file [`wine.csv`](wine.csv) has been added, containing an example of a typical dataset. You can read more about it [on the repository](http://archive.ics.uci.edu/ml/datasets/Wine). The datasets are mostly available in CSV format. If you do not know what the CSV format is, do not confess it to anybody and check out [in Wikipedia](https://en.wikipedia.org/wiki/Comma-separated_values). In short, it is a table format where all data is written in text, cells are separated by commas, and new rows are followed by carriage return.
 
-Dla wygody, przed eksperymentami wczytujemy taki zbiór danych jako _ramkę danych_. Jak już wiesz, taka forma wymaga opisanych kolumn i wierszy. Opisem wiersza będzie w tym wypadku numer obiektu, więc nie musimy się nim martwić, ale opisy kolumn musimy już uzupełnić.
+For convenience, we load such data sets as _data frames_ before the experiments. As you already know, this form requires the columns and rows described. The description of the line will be in this case the number of the object, so we do not have to worry about it, but the description of the columns we have to complement.
 
-Przykładowo, dla zbioru `wine`:
+Exemplary, for `wine` dataset:
 
 ```python
 names = ['class', 'Alcohol', 'Malic acid', 'Ash', 'Alcalinity of ash ', 'Magnesium', 'Total phenols', 'Flavanoids', 'Nonflavanoid phenols', 'Proanthocyanins', 'Color intensity', 'Hue', 'OD280/OD315 of diluted wines', 'Proline']
 ```
 
-Biblioteka `pandas` posiada wbudowaną funkcję wczytującą pliki CSV do ramek, więc używamy jej, aby odczytać nasz zbiór danych.
+The `pandas` library has built-in CSV reader, so we use it to read our dataset.
 
 ```python
 data = pd.read_csv('wine.csv', names=names)
 ```
 
-> **Zadanie 3:** Wybierz z repozytorium UCI jeden zbiór danych, przeczytaj jego opis i uzupełnij swój skrypt o wczytywanie tego zbioru, pamiętając o odpowiednim nazwaniu kolumn.
+> **Task 3:** Select one of the datasets from the UCI repository, read its description, and complete your script to load this collection, keeping in mind the names of the columns.
 
-## Statystyki opisowe [`4_statistics.py`](4_statistics.py)
+## Descriptive statistics [`4_statistics.py`](4_statistics.py)
 
-Wczytanie zbioru danych do dopiero początek _świetnej zabawy_. Jeśli mamy zajmować się jego przetwarzaniem, wypadałoby dowiedzieć się o nim czegoś więcej. Do tego przydadzą nam się statystyki opisowe.
+Loading the data set to just the beginning of the _great fun_. If we have to deal with its processing, it would be worth knowing more about it. For this we will need descriptive statistics.
 
-Wobec ramki danych, możemy łatwo wyświetlić statystyki dla każdej z cech, korzystając z wbudowanej w bibliotekę `pandas` funkcji `describe()`.
+For the data frame, we can easily display statistics for each feature using the built-in `pandas` method `describe()`.
 
 ```python
 description = data.describe()
 ```
 
-Przykładowy wynik takiej operacji może wyglądać jak poniżej:
+An example of such an operation might look like this:
 
 ```
 class     Alcohol  Malic acid         Ash  \
@@ -114,23 +115,23 @@ min      1.000000   11.030000    0.740000
 max      3.000000   14.830000    5.800000
 ```
 
-> **Zadanie 4:** Uzupełnij swój skrypt o wyświetlanie statystyk opisowych cech zbioru danych. Wykorzystując swoją wiedzę z _Rachunku Prawdopodobieństwa_ i _Inżynierskich Zastosowań Statystyki_, w komentarzu, wyjaśnij każdą z wyświetlonych miar.
+> **Task 4:** Complete your script to display descriptive statistics for the dataset. Using your knowledge of Probability and Statistics, in the comment, explain each of the measures shown.
 
-## Wizualizacja danych [`5_scatter_plot.py`](5_scatter_plot.py)
+## Data visualization [`5_scatter_plot.py`](5_scatter_plot.py)
 
-Jeśli nie radzisz sobie zbyt dobrze z interpretowaniem liczb i statystyki opisowe niewiele ci mówią, szczęśliwie, jest jeszcze dla ciebie nadzieja. Dane liczbowe możemy również wizualizować. W celu zobrazowania wczytanego zbioru użyjemy biblioteki `matplotlib`.
+If you do not do well with the interpretation of numbers and descriptive statistics do not tell you a lot, happily there is still hope for you. Numbers also be visualized. To display the loaded file, we will use the `matplotlib` library.
 
 ```python
 import matplotlib.pyplot as plt
 ```
 
-Naszym wyborem wizualizacji będzie _scatter plot_, który wyrysować potrafi, jak zawsze pomocna `pandas`.
+Our choice of visualization will be _scatter plot_, brought by helpful `pandas`.
 
 ```python
 from pandas.tools.plotting import scatter_matrix
 ```
 
-Zauważ, że tym razem nie zaimportowaliśmy całego modułu, a jedynie pojedynczą funkcję. Użyjmy jej więc do wyrysowania wizualizacji _scatter plot_.
+Note that this time we have not imported the entire module, but only a single function. Let's use it to draw a _scatter plot_.
 
 ```python
 scatter_matrix(data)
@@ -139,7 +140,7 @@ plt.show()
 
 ![](SS.png)
 
-> **Zadanie 5:** Przeszukaj dokumentację użytych bibliotek, aby dowiedzieć się jak wyrysować na ekranie histogram wybranej cechy i uczyń to dla swojego zbioru.
+> **Zadanie 5:** Browse the documentation of the used libraries to learn how to draw a histogram of one, chosen feature and **do it**.
 
 ## Preproccesing[`preprocessing.py`](6_preprocessing.py)
 
