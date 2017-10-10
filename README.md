@@ -1,4 +1,4 @@
-# Laboratorium 1
+# Module 1
 
 > Tools, frames and data sets, their statistics, preprocessing and simple machine learning.
 
