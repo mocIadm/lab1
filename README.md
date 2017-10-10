@@ -24,8 +24,6 @@ print 'pandas: %s' % pd.__version__
 print 'sklearn: %s' % skl.__version__
 ```
 
-> **Zadanie 1:** Stwórz własny skrypt, w którym zaimportujesz wszystkie potrzebne biblioteki i przywitasz się ze światem.
-
 > **Task 1:** Create your own script, in which you import all the needed libraries and say *Hello* to the world.
 ## Data frames [`2_data_frame.py`](2_data_frame.py)
 
@@ -38,8 +36,6 @@ Short introduction to _Python_ language:
 - you do not need to declare variable types,
 - instead of brackets you use indentations (so the meaning is not only the size of the characters, but also the spaces).
 - if you do not know something, you know where the [Stack Overflow](https://stackoverflow.com) is.
-
-W tym zadaniu tworzymy tak zwaną _ramkę danych_, która różni się od klasycznej tablicy tym, że każdy wiersz i każda kolumna ma swoją nazwę. Będziemy potrzebować bibliotek `numpy` i `pandas`.
 
 In this task we create a so-called _data frame_, which is different from the classical array in that each row and each column has its name. We will need the `numpy` and` pandas` libraries.
 
@@ -140,17 +136,17 @@ plt.show()
 
 ![](SS.png)
 
-> **Zadanie 5:** Browse the documentation of the used libraries to learn how to draw a histogram of one, chosen feature and **do it**.
+> **Task 5:** Browse the documentation of the used libraries to learn how to draw a histogram of one, chosen feature and **do it**.
 
 ## Preproccesing[`preprocessing.py`](6_preprocessing.py)
 
-Już niedługo będziemy mogli przystąpić do naszego pierwszego eksperymentu. Zanim to jednak nastąpi, musimy zapamiętać, jak istotnym jest tak zawany etap _preprocessingu_, czyli przetwarzania danych przed przekazaniem ich do algorytmu. Za przykład posłuży nam moduł `sklearn.preprocessing`.
+Soon we will be able to make our first experiment. However, before we do, we need to remember how important the process of preprocessing is. As an example, we will use the `sklearn.preprocessing` module.
 
 ```python
 import sklearn.preprocessing as sklp
 ```
 
-Na samym początku musimy podzielić zbiór danych na dwie części. Cechy (nazwiemy je podzbiorem `X`) i etykiety (podzbiór `Y`). W przypadku zbioru `wine`, etykiety (czyli inaczej informacja o klasie) znajdowały się w kolumnie pierwszej. Cechy stanowią całą resztę zbioru danych.
+At the beginning, we need to split the data set into two parts. Features (we call it subset `X`) and labels (subset` Y`). In the case of `wine` dataset, labels were in the first column. Features are the rest of the data set.
 
 ```python
 array = data.values
@@ -158,14 +154,14 @@ X = array[:,1:]
 Y = array[:,0]
 ```
 
-W następnym kroku przeskalujmy podzbiór cech, dokonując ich _standaryzacji_, która w tym wypadku oznacza takie ich przetworzenie, aby średnia wartości wynosiła zero, a odchylenie standardowe było równe jeden.
+In the next step, we'll rescale a subset of features by making them standardized, which in this case means processing them so that the average value is zero and the standard deviation is one.
 
 ```python
 scaler = sklp.StandardScaler().fit(X)
 rescaledX = scaler.transform(X)
 ```
 
-Porównajmy ze sobą oryginalny i ustandaryzowany zbiór cech.
+Let's compare the original and standardized set of features.
 
 >X
 ```
@@ -185,7 +181,7 @@ Porównajmy ze sobą oryginalny i ustandaryzowany zbiór cech.
  [ 0.296  0.228  1.84   0.452  1.282]]
 ```
 
-## Uczenie
+## Teaching
 
 ```python
 from sklearn import neighbors
@@ -205,4 +201,4 @@ scores = cross_val_score(clf, X, Y, cv=10)
 print 'Acc: %.3f' % scores.mean()
 ```
 
-> **Zadanie 6:** Uzupełnij swój skrypt o proces uczenia. Przetestuj przynajmniej trzy klasyfikatory i wyświetl na ekranie wyniki, które osiągnęły. Zweryfikuj też jakość klasyfikacji na znormalizowanym zbiorze `X`.
+> **Task 6:** Complete your script with the learning process. Test at least three classifiers and show the results you have achieved. Also verify the quality of the classification on the standardized set X.
